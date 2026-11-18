@@ -1,0 +1,6 @@
+{
+  "name": "RAPIDPoint 500e — Simulador Funcional Integral",
+  "description": "Simulador conceptual interactivo del software de analizador de gases en sangre RAPIDPoint 500e con Modo Clínico, Modo Laboratorio, motor de validación fisiológica, CCI Westgard y mensajería Atellica Connect simulada.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

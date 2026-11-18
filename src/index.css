@@ -1,0 +1,340 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-sans);
+    background-color: #0f172a;
+    color: #0f172a;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono, .tabular-nums {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  button {
+    touch-action: manipulation;
+    user-select: none;
+  }
+}
+
+/* Dark mode semantic surface and text overrides scoped to the analyzer LCD viewport (Dark Gray) */
+.dark {
+  color-scheme: dark;
+  color: #e5e7eb;
+}
+
+.dark .bg-white {
+  background-color: #26282c;
+}
+
+.dark .bg-\[\#F8FAFC\],
+.dark .bg-\[\#F6F8FA\],
+.dark .bg-slate-50 {
+  background-color: #1f2124;
+}
+
+.dark .bg-\[\#F1F4F7\],
+.dark .bg-\[\#ECEFF3\],
+.dark .bg-\[\#E3E7ED\],
+.dark .bg-slate-100,
+.dark .bg-slate-200\/70 {
+  background-color: #2f3237;
+}
+
+.dark .bg-\[\#C9CFD6\],
+.dark .bg-\[\#D2D8E0\],
+.dark .bg-\[\#E2E7ED\] {
+  background-color: #3d4147;
+}
+
+.dark .bg-\[\#EDF5FC\],
+.dark .bg-\[\#FFF8F3\],
+.dark .bg-\[\#FFF3EB\],
+.dark .bg-\[\#FFF5ED\] {
+  background-color: #2d3035;
+}
+
+.dark .text-slate-950,
+.dark .text-slate-900,
+.dark .text-slate-800 {
+  color: #f3f4f6;
+}
+
+.dark .text-slate-700,
+.dark .text-slate-600 {
+  color: #d1d5db;
+}
+
+.dark .text-slate-500,
+.dark .text-slate-400 {
+  color: #9ca3af;
+}
+
+.dark .border-slate-300,
+.dark .border-slate-200,
+.dark .border-slate-100 {
+  border-color: #3f434a;
+}
+
+.dark .divide-slate-200 > :not(:last-child),
+.dark .divide-slate-100 > :not(:last-child) {
+  border-color: #35383e;
+}
+
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #191b1e;
+  color: #f3f4f6;
+  border-color: #4b5058;
+}
+
+.dark .text-\[\#0066B2\] {
+  color: #60a5fa;
+}
+
+/* Preserve dark text inside bright yellow/amber/emerald/sky/red alert cards */
+.dark .bg-amber-300,
+.dark .bg-amber-200,
+.dark .bg-amber-100,
+.dark .bg-amber-50,
+.dark .bg-amber-300\/85,
+.dark .bg-amber-200\/75 {
+  color: #451a03;
+}
+
+/* Compact instrument scrollbars for internal HMI viewports */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1a1c1f;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5058;
+}
+
+@keyframes atellica-info-flash {
+  0%,
+  49% {
+    background-color: #dc2626;
+    color: #ffffff;
+    border-color: #991b1b;
+  }
+  50%,
+  100% {
+    background-color: transparent;
+    color: #92400e;
+    border-color: transparent;
+  }
+}
+
+.animate-atellica-info-alert {
+  animation: atellica-info-flash 1.1s ease-in-out infinite;
+}
+
+.dark .manual-paper {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+.dark .manual-paper .bg-slate-50 {
+  background-color: #f8fafc;
+}
+
+.dark .manual-paper .bg-slate-100 {
+  background-color: #f1f5f9;
+}
+
+.dark .manual-paper .text-slate-900,
+.dark .manual-paper .text-slate-800 {
+  color: #0f172a;
+}
+
+.dark .manual-paper .text-slate-700,
+.dark .manual-paper .text-slate-600 {
+  color: #334155;
+}
+
+.dark .manual-paper .text-slate-500 {
+  color: #64748b;
+}
+
+.dark .manual-paper .border-slate-300,
+.dark .manual-paper .border-slate-200 {
+  border-color: #cbd5e1;
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  #feature-manual-modal,
+  #feature-manual-modal * {
+    visibility: visible !important;
+  }
+  #feature-manual-modal {
+    position: static !important;
+    inset: auto !important;
+    background: #ffffff !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+  #feature-manual-modal .manual-paper {
+    border: none !important;
+    box-shadow: none !important;
+    height: auto !important;
+    max-width: 100% !important;
+  }
+  #feature-manual-printable {
+    overflow: visible !important;
+    background: #ffffff !important;
+    padding: 0 !important;
+  }
+  .manual-no-print,
+  .manual-toc {
+    display: none !important;
+  }
+}
+
+/* Screensaver animated clinical sample-handling diagrams */
+@keyframes ss-draw-plunger {
+  0%, 15% { transform: translateX(0px); }
+  55%, 85% { transform: translateX(18px); }
+  100% { transform: translateX(0px); }
+}
+
+@keyframes ss-fill-blood {
+  0%, 15% { width: 12px; }
+  55%, 85% { width: 34px; }
+  100% { width: 12px; }
+}
+
+@keyframes ss-rock-syringe {
+  0%, 100% { transform: rotate(-20deg) translateY(0px); }
+  50% { transform: rotate(22deg) translateY(-3px); }
+}
+
+@keyframes ss-drop-fall {
+  0% { transform: translateY(0px) scale(0.6); opacity: 0; }
+  20% { transform: translateY(2px) scale(1); opacity: 1; }
+  75% { transform: translateY(22px) scale(1); opacity: 1; }
+  100% { transform: translateY(28px) scale(0.75); opacity: 0; }
+}
+
+@keyframes ss-insert-port {
+  0%, 15% { transform: translateX(16px); }
+  55%, 80% { transform: translateX(0px); }
+  100% { transform: translateX(16px); }
+}
+
+@keyframes ss-press-btn {
+  0%, 35%, 100% { transform: scale(1); }
+  50%, 62% { transform: scale(0.92); }
+}
+
+@keyframes ss-tap-ripple {
+  0%, 40% { transform: scale(0.6); opacity: 0; }
+  55% { transform: scale(1); opacity: 0.85; }
+  85%, 100% { transform: scale(1.65); opacity: 0; }
+}
+
+@keyframes ss-scan-beam {
+  0%, 100% { transform: translateY(-10px); opacity: 0.4; }
+  50% { transform: translateY(16px); opacity: 1; }
+}
+
+@keyframes ss-type-line {
+  0%, 15% { transform: scaleX(0.15); }
+  55%, 90% { transform: scaleX(1); }
+  100% { transform: scaleX(0.15); }
+}
+
+.ss-anim-plunger {
+  animation: ss-draw-plunger 2.8s ease-in-out infinite;
+}
+.ss-anim-blood {
+  animation: ss-fill-blood 2.8s ease-in-out infinite;
+}
+.ss-anim-rock {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ss-rock-syringe 1.8s ease-in-out infinite;
+}
+.ss-anim-drop-1 {
+  animation: ss-drop-fall 2.2s ease-in infinite;
+}
+.ss-anim-drop-2 {
+  animation: ss-drop-fall 2.2s ease-in 1.1s infinite;
+}
+.ss-anim-insert {
+  animation: ss-insert-port 2.6s ease-in-out infinite;
+}
+.ss-anim-press {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ss-press-btn 2.4s ease-in-out infinite;
+}
+.ss-anim-ripple {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ss-tap-ripple 2.4s ease-out infinite;
+}
+.ss-anim-scan {
+  animation: ss-scan-beam 2.4s ease-in-out infinite;
+}
+.ss-anim-line {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: ss-type-line 2.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ss-anim-plunger,
+  .ss-anim-blood,
+  .ss-anim-rock,
+  .ss-anim-drop-1,
+  .ss-anim-drop-2,
+  .ss-anim-insert,
+  .ss-anim-press,
+  .ss-anim-ripple,
+  .ss-anim-scan,
+  .ss-anim-line {
+    animation: none !important;
+  }
+}
